@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Test</title>
+        <title>Simple Dashboard</title>
       </head>
       <body>
         <ChakraProvider>
