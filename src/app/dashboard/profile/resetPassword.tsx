@@ -73,8 +73,6 @@ const ResetPassword = (props: {
             ? responseData.message
             : "Hang on! There's some thing wrong in our system",
         });
-
-        if (response.status === 401) router.push("/auth/signin");
       }
     } catch (error) {
       toast({
