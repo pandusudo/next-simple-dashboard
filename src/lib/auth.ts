@@ -11,8 +11,8 @@ export const authConfig: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user }) {
-      const data = { name: user.name, email: user.email };
+    async signIn({ account }) {
+      const data = { token: account?.id_token };
 
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_BE_PATH}/api/auth/signin-google`,
@@ -40,7 +40,7 @@ export const authConfig: NextAuthOptions = {
             httpOnly,
             secure: true,
             domain: process.env.COOKIE_DOMAIN,
-            sameSite:"strict",
+            sameSite: "strict",
           });
         });
       }
