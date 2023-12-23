@@ -20,8 +20,6 @@ const DashboardPage = () => {
         }
       );
 
-      console.log(data, " => response dashboard");
-
       if (data.status == 401) {
         router.push("/auth/signin");
       }

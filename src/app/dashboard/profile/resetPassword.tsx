@@ -64,7 +64,6 @@ const ResetPassword = (props: {
         props.onClose();
         router.push("/auth/signin");
       } else {
-        console.log(response.status);
         toast({
           title: "Error",
           status: "error",

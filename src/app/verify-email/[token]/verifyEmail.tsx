@@ -20,7 +20,6 @@ export default function VerifyEmailPage({ token }: { token: string }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setData(data);
         setIsLoading(false);
       });

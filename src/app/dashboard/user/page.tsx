@@ -78,8 +78,6 @@ const UserListPage = () => {
     return paginationButtons;
   };
 
-  console.log(data);
-
   return (
     <Flex>
       <Sidebar user={true} />

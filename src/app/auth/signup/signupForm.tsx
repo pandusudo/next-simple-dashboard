@@ -54,8 +54,6 @@ const SignupForm = () => {
       );
 
       const responseData = await response.json();
-      console.log(responseData);
-      console.log(response.ok);
 
       // Check if the request was successful (status code 2xx)
       if (response.ok) {
