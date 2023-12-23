@@ -110,9 +110,11 @@ const UserListPage = () => {
                         .format("YYYY-MM-DD HH:mm")}
                     </Td>
                     <Td>
-                      {moment(user.last_session)
-                        .tz(moment.tz.guess())
-                        .format("YYYY-MM-DD HH:mm")}
+                      {user.last_session && moment(user.last_session).isValid()
+                        ? moment(user.last_session)
+                            .tz(moment.tz.guess())
+                            .format("YYYY-MM-DD HH:mm")
+                        : "No last session"}
                     </Td>
                     <Td>{user.login_counter}</Td>
                     {/* Add more cells as needed */}
