@@ -33,16 +33,13 @@ export const authConfig: NextAuthOptions = {
           const parsedCookie = parse(cookie);
           const [cookieName, cookieValue] = Object.entries(parsedCookie)[0];
           const httpOnly = cookie.includes("HttpOnly");
-          const domainRegex = /(?<=domain=)[^;]+/;
-          const domainMatch = cookie.match(domainRegex);
-          const domain = domainMatch ? domainMatch[0] : undefined;
 
           cookies().set({
             name: cookieName,
             value: cookieValue,
             httpOnly,
             secure: true,
-            domain,
+            domain: process.env.COOKIE_DOMAIN,
             sameSite:"strict",
           });
         });
