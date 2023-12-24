@@ -41,6 +41,7 @@ export const authConfig: NextAuthOptions = {
             secure: true,
             domain: process.env.COOKIE_DOMAIN,
             sameSite: "strict",
+            maxAge: 30 * 24 * 60 * 60 * 1000,
           });
         });
       }
