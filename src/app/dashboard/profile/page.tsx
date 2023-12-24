@@ -142,7 +142,12 @@ const UserProfilePage = () => {
   };
 
   if (isLoading) {
-    return <></>;
+    return (
+      <Flex>
+        <Sidebar profile={true} />
+        <Box w="full" p={4}></Box>
+      </Flex>
+    );
   } else {
     return (
       <Flex>

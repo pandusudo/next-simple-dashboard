@@ -1,5 +1,12 @@
 "use client";
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  CircularProgress,
+  Flex,
+  HStack,
+  Text,
+} from "@chakra-ui/react";
 import Sidebar from "@/components/sidebar";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -35,38 +42,81 @@ const DashboardPage = () => {
   return (
     <Flex>
       <Sidebar dashboard={true} />
-      <Box p="8" width="100%">
-        <HStack spacing="8" justify="center">
+      <Box p={4} w="full">
+        <HStack justify="center">
           <Box
             p="4"
             borderWidth="1px"
             borderRadius="lg"
             boxShadow="base"
-            w="300px"
+            w="full"
           >
             <Text>Total Users</Text>
-            <Text fontSize="2xl">{data?.data?.total_users}</Text>
+            <Text fontSize="2xl">
+              {data ? (
+                data?.data?.total_users
+              ) : (
+                <>
+                  <Center>
+                    {" "}
+                    <CircularProgress
+                      isIndeterminate
+                      color="teal.500"
+                      size="2rem"
+                    />
+                  </Center>
+                </>
+              )}
+            </Text>
           </Box>
           <Box
             p="4"
             borderWidth="1px"
             borderRadius="lg"
             boxShadow="base"
-            w="300px"
+            w="full"
           >
             <Text>Active Users Today</Text>
-            <Text fontSize="2xl">{data?.data?.active_users_today}</Text>
+            <Text fontSize="2xl">
+              {data ? (
+                data?.data?.active_users_today
+              ) : (
+                <>
+                  <Center>
+                    {" "}
+                    <CircularProgress
+                      isIndeterminate
+                      color="teal.500"
+                      size="2rem"
+                    />
+                  </Center>
+                </>
+              )}
+            </Text>
           </Box>
           <Box
             p="4"
             borderWidth="1px"
             borderRadius="lg"
             boxShadow="base"
-            w="300px"
+            w="full"
           >
             <Text>Average Active Users (7 Days)</Text>
             <Text fontSize="2xl">
-              {data?.data?.average_active_users_last_7_days}
+              {data ? (
+                data?.data?.average_active_users_last_7_days
+              ) : (
+                <>
+                  <Center>
+                    {" "}
+                    <CircularProgress
+                      isIndeterminate
+                      color="teal.500"
+                      size="2rem"
+                    />
+                  </Center>
+                </>
+              )}
             </Text>
           </Box>
         </HStack>
